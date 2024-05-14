@@ -1,0 +1,38 @@
+@charset "EUC-KR";
+
+body {
+	background-color: #F8F8F8; /* 빨간색 */
+}
+
+.Headerblock {
+	display: flex;
+	justify-content: space-around;
+}
+
+.Headerblock-inline {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.Home-Tab {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+/* .Header-button{
+} */
+.icon {
+	width: 24px; /* 원하는 크기로 조정 */
+	height: 24px;
+	clip-path: circle(60%); /* 원모양 클리핑 경로 */
+	transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.icon:hover {
+	background-color: #B6B4AC; /* 호버 시 변경할 색상 */
+}
+#Home-Tap-Icon{
+	padding : 20px;
+	right : 20px;
+}
