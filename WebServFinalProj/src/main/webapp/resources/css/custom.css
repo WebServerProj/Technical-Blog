@@ -17,8 +17,8 @@ body {
 
 .Home-Tab {
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    justify-content: space-between;
+    align-items: center;
 }
 /* .Header-button{
 } */

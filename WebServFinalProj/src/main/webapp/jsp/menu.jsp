@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/custom.css">
 <title>Magazine</title>
 </head>
 <body>
-<!-- Header block -->
+	<!-- Header block -->
 	<div class="Headerblock">
 		<div class="item1">
 			<h1>velog</h1>
@@ -25,12 +27,10 @@
 	</div>
 	<!-- Home Tab Wrap -->
 	<div class="Home-Tab">
-		<a id="Home-Tap-Icon">
-			<img src="../resources/img/trend.png" width="30px" height="30px">
-			<span>New</span>
-		</a>
-		<a>
-			<img src="../resources/img/more_index.png" width="24px" height="24px">
+		<a id="Home-Tap-Icon" style="margin-left: 305px;"> <img src="../resources/img/trend.png"
+			width="30px" height="30px"> <span>New</span>
+		</a> <a> <img src="../resources/img/more_index.png" width="24px"
+			height="24px" style="margin-right: 325px;">
 		</a>
 	</div>
 </body>
