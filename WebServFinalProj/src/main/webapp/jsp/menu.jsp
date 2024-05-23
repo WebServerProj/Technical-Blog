@@ -12,13 +12,13 @@
 	<!-- Header block -->
 	<div class="Headerblock">
 		<div class="item1">
-			<a href="./index.jsp"><h1>velog</h1></a>
+			<a href="./main.jsp"><h1>velog</h1></a>
 		</div>
 		<div class="Headerblock-inline">
 			<div class="icon">
 				<img src="../resources/img/search.png" width="24px" height="24px">
 			</div>
-			<form action="login.jsp" method="post">
+			<form action="../login/login_form.jsp" method="post">
 				<div class="Header-button">
 					<button type="submit" class="btn btn-dark">Login</button>
 				</div>
