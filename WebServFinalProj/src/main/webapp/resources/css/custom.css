@@ -3,10 +3,13 @@
 body {
 	background-color: #F8F8F8; /* 빨간색 */
 }
-
+.item1 {
+	margin-left : 10px;
+}
 .Headerblock {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+	margin : 0px 7%;
 }
 
 .Headerblock-inline {
@@ -17,11 +20,11 @@ body {
 
 .Home-Tab {
 	display: flex;
+	margin : 0px 7%;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid black;
 }
-/* .Header-button{
-} */
 .icon {
 	width: 24px; /* 원하는 크기로 조정 */
 	height: 24px;
@@ -31,6 +34,11 @@ body {
 
 .icon:hover {
 	background-color: #B6B4AC; /* 호버 시 변경할 색상 */
+}
+.script-center{
+	display: flex;
+	margin : 0px 7%;
+	border : 1px solid black;
 }
 #Home-Tap-Icon{
 	padding : 20px;

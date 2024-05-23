@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -14,23 +12,25 @@
 	<!-- Header block -->
 	<div class="Headerblock">
 		<div class="item1">
-			<h1>velog</h1>
+			<a href="./index.jsp"><h1>velog</h1></a>
 		</div>
 		<div class="Headerblock-inline">
 			<div class="icon">
 				<img src="../resources/img/search.png" width="24px" height="24px">
 			</div>
-			<div class="Header-button">
-				<button type="submit" class="btn btn-dark">Login</button>
-			</div>
+			<form action="login.jsp" method="post">
+				<div class="Header-button">
+					<button type="submit" class="btn btn-dark">Login</button>
+				</div>
+			</form>
 		</div>
 	</div>
-	<!-- Home Tab Wrap -->
+	<!-- Home Tab -->
 	<div class="Home-Tab">
-		<a id="Home-Tap-Icon" style="margin-left: 305px;"> <img src="../resources/img/trend.png"
+		<a id="Home-Tap-Icon"> <img src="../resources/img/trend.png"
 			width="30px" height="30px"> <span>New</span>
 		</a> <a> <img src="../resources/img/more_index.png" width="24px"
-			height="24px" style="margin-right: 325px;">
+			height="24px">
 		</a>
 	</div>
 </body>
