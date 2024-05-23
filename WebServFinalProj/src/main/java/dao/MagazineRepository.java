@@ -48,7 +48,7 @@ public class MagazineRepository{
 		mag5.setFilename("ISBN0004.jpg");
 		mag5.setDescription("처음으로 새롭게 이 페이지를 접속하신 여러분들께 감사합니다. 지금부터 이 웹페이지에 대한 설명을 포함하여 이 웹페이지를 하나하나씩 만들어 보도록 하겠습니다.");
 		
-	
+		
 		
 		listOfMagazines.add(mag1);
 		listOfMagazines.add(mag2);
