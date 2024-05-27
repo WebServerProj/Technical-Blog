@@ -9,25 +9,23 @@
 
 	String id = request.getParameter("id");
 	String pw = request.getParameter("passwd");
+	String name = null;
 
 	
-	// 1.변수선언
 	String url = "jdbc:oracle:thin:@localhost:1521/XE";
 	String uid = "c##JSP";
 	String upw = "JSP";
 	
 	Connection conn = null;
     PreparedStatement pstmt = null;
+    PreparedStatement pstmt1 = null;
     ResultSet rs = null;
-    
+    ResultSet rs1 = null;
 	String user = "select * from MEMBERS where ID=? and PW=?";
-	
 	try{
-		// 1. 드라이버 로드
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		// 2. conn 생성
 		conn = DriverManager.getConnection(url, uid, upw);
-		// 3. pstmt 생성
+		
 		pstmt = conn.prepareStatement(user);
 		pstmt.setString(1, id);
 		pstmt.setString(2, pw);
@@ -35,10 +33,22 @@
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()) {
-			response.sendRedirect("main.jsp");
+			session.setAttribute("id", id);
+			session.setAttribute("pw", pw);
+            String getUserName = "SELECT NAME from MEMBERS WHERE ID=?";
+            pstmt1 = conn.prepareStatement(getUserName);
+            pstmt1.setString(1, id);
+            rs1 = pstmt1.executeQuery();
+
+            if(rs1.next()) {
+                name = rs1.getString("NAME");
+                session.setAttribute("name", name);
+                response.sendRedirect("../jsp/main.jsp");
+
+            }
 		}
 		else {
-			out.println("아이디, 비밀번호를 다시 입력해주세요.");
+			response.sendRedirect("../login/login_fail.jsp");
 		}
 	} catch(Exception e){
 		e.printStackTrace();
