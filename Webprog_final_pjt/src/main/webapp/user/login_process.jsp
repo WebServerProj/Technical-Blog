@@ -43,7 +43,7 @@
             if(rs1.next()) {
                 name = rs1.getString("NAME");
                 session.setAttribute("name", name);
-                response.sendRedirect("../jsp/main.jsp");
+                response.sendRedirect("../main/main.jsp");
 
             }
 		}

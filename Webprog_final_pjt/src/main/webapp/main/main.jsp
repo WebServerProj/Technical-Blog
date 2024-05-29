@@ -17,7 +17,9 @@
 		</div>
 		<div class="Headerblock-inline">
 			<div class="icon">
+			<a href="../add/addMagazine.jsp"	>
 				<img src="../resources/img/search.png" width="24px" height="24px">
+			</a>
 			</div>
 			<div class="Header-button">
 				<%
