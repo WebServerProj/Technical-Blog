@@ -19,7 +19,7 @@
     Connection conn = null;
     PreparedStatement pstmt = null;
 
-    
+    // MEMBERS에서 고객아이디를 외래키로 가져오는 방식 추가 예정
     String sql = "INSERT INTO WRITEDATA VALUES (?, ?, ?, ?)";
     
     try {
