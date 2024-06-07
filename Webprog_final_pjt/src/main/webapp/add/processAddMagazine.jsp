@@ -22,7 +22,7 @@ String magazineID = UUID.randomUUID().toString();
 String magTitle = multi.getParameter("magTitle");
 String magTag = multi.getParameter("magTag");
 String magContent = multi.getParameter("magContent");
-// cliId는 세션ㅇ 정보에서 가져온 값
+// cliId는 세션 정보에서 가져온 값
 String clientId = (String) session.getAttribute("id");
 String magFile = multi.getFilesystemName("file");
 
