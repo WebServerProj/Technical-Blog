@@ -1,7 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="jakarta.websocket.OnError"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="dto.Magazine"%>
-<%@ page import="dao.MagazineRepository"%>
-<%@ page contentType="text/html; charset=utf-8"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,29 +21,12 @@
 			<a href="./main.jsp"><h1>velog</h1></a>
 		</div>
 		<div class="Headerblock-inline">
-		
-<div class="Headerblock-inline">
-    <!-- 검색 아이콘 활성화 및 수정 -->
-    <div class="icon">
-        <!-- 검색 페이지로 이동하도록 링크 수정 가능 -->
-        <a href="../search/search_form.jsp">
-            <!-- 검색 아이콘 이미지로 변경. 이미지 경로 확인 필요 -->
-            <img src="../resources/img/search.png" width="24px" height="24px" alt="Search">
-        </a>
-    </div>
-    <!-- 기존 로그인/로그아웃 버튼 코드 유지 -->
-</div>
-			<!-- <div class="icon">
-			<a href="../add/addMagazine.jsp"	>
-				<img src="../resources/img/search.png" width="24px" height="24px">
-			</a>
-			</div> -->
 			<div class="Header-button">
 				<%
 				String name = (String) session.getAttribute("name");
 				if (name != null) {
 				%>
-<div class="d-flex gap-2"> <!-- Flex container 생성 및 요소 간 간격 설정 -->
+<div class="d-flex gap-2"> 
     <span><%=name%>님</span>
     <form action="../login/logout_process.jsp" method="post">
         <button type="submit" class="btn btn-dark">Logout</button>
@@ -51,8 +37,10 @@
     <form action="../add/addMagazine.jsp" method="post">
         <button type="submit" class="btn btn-dark">새글 작성</button>
     </form>
+    <form action="../checkMyMag/checkMag.jsp" method="post">
+		<button type="submit" class="btn btn-dark">내글 목록</button>
+	</form>
 </div>
-
 				<%
 				} else {
 				%>
@@ -70,6 +58,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!-- Home Tab -->
 	<div class="Home-Tab">
 		<a id="Home-Tap-Icon"> <img src="../resources/img/trend.png"
@@ -81,42 +70,48 @@
 
 	<!-- Search Bar -->
 	<div class="container mt-3">
-		<form action="../search/search_result.jsp" method="get" class="d-flex">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+		<form action="../search/search_process.jsp" method="post" class="d-flex">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_value">
 			<button class="btn btn-outline-success" type="submit">Search</button>
 		</form>
 	</div>
 
-	<!-- Main Content -->
-	<%
-	MagazineRepository dao = MagazineRepository.getInstance();
-	ArrayList<Magazine> listOfMagazine = dao.getAllMagazine();
-	%>
+   <!-- Main Content -->
+   <%@ include file="../DBconn/dbconn.jsp" %>
+   <%
+      PreparedStatement pstmt = null;
+      ResultSet rs = null;
+      String sql = "SELECT * FROM WRITEDATA";
+      pstmt = conn.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+   %>
 
-	<div class="row align-items-md-stretch text-center">
-		<%
-		for (int i = 0; i < listOfMagazine.size(); i++) {
-			Magazine mag = listOfMagazine.get(i);
-		%>
-		<div class="col-md-4">
-			<div class="h-100 p-2">
-				<img src="../resources/images/<%=mag.getFilename()%>"
-					onerror="../resources/images/error.jpg" class="img-fluid">
-				<h5>
-					<b><%=mag.getTitle()%></b>
-				</h5>
-				<p><%=mag.getDescription().substring(0, 20)%>...
-				</p>
-				<a href="./magazine.jsp?id=<%=mag.getWriter()%>"
-					class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
-				<p>
-					by
-					<%=mag.getWriter()%></p>
-			</div>
-		</div>
-		<%
-		}
-		%>
-	</div>
+<div class="container">
+    <div class="row align-items-md-stretch text-center">
+        <% while (rs.next()) { %>
+            <div class="col-md-4">
+                <div class="h-100 p-2">
+                    <img src="../resources/img/error.png"
+                         onerror="this.src='../resources/images/error.png';" class="img-fluid" style="width: 250px; height:350px">
+                    <h5>
+                        <b><%=rs.getString("magTitle")%></b>
+                    </h5>
+                    <p> <%=rs.getString("magContent").substring(0, 10)%>...</p>
+                    <a href="./magazine.jsp?id=<%=rs.getString("clientId")%>"
+                       class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
+                    <p><%=rs.getString("clientId")%></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+      <%
+      if (rs!=null)
+         rs.close();
+      if (pstmt!=null)
+         pstmt.close();
+      if(conn != null)
+         conn.close();
+      %>
 </body>
 </html>
