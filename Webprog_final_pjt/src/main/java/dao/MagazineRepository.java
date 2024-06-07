@@ -68,6 +68,19 @@ public class MagazineRepository {
     public ArrayList<Magazine> getAllMagazine() {
         return listOfMagazines;
     }
+    public Magazine getMagById(String bookId) {
+    	Magazine magById = null;
+
+		for (int i = 0; i < listOfMagazines.size(); i++) {
+			Magazine mag = listOfMagazines.get(i);
+			if (mag != null && mag.getMagazineId() != null && mag.getMagazineId().equals(bookId)) {
+				
+				magById = mag;
+				break;
+			}
+		}
+		return magById;
+	}
 
     public void addMagazine(Magazine mag) {
         listOfMagazines.add(mag);

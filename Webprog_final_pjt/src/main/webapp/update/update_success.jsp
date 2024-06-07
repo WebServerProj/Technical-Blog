@@ -2,14 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Logout</title>
+<title>Insert title here</title>
 </head>
 <body>
-<%
-	session.invalidate();
-	response.sendRedirect("../main/main.jsp");
-	%>
-
-
+업데이트 성공
 </body>
 </html>

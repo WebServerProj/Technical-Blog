@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>회원가입</title>
+<title>회원정보수정</title>
 <style>
     body {
         font-family: 'Noto Sans KR', sans-serif;
@@ -68,11 +68,6 @@
         let phone = form.phone1.value + "-" + form.phone2.value + "-" + form.phone3.value;
         let email = form.email.value;
         
-        if (!regExpId.test(id)) {
-            alert("아이디는 문자로 시작해 주세요!");
-            form.id.select();
-            return;
-        }
         if (!regExpName.test(name)) {
             alert("이름은 한글만으로 입력해 주세요!");
             form.id.select();
@@ -97,8 +92,11 @@
     }
 </script>
 <body>
-    <form action="../user/join_process.jsp" name="Member" method="post">
-        <p>아이디: <input type="text" name="id" placeholder="문자로 시작해야 합니다."></p>
+    <form action="../user/update_process.jsp" name="Member" method="post">
+    <%
+    String id = (String)session.getAttribute("id");
+    %>
+    <p>아이디: <input type="text" name="id" value="<%=id%>" readonly></p>
         <p>비밀번호: <input type="password" name="passwd" placeholder="숫자만 입력하세요"></p>
         <p>이름: <input type="text" name="name" placeholder="한글만 입력하세요"></p>
         <p>연락처: 
@@ -113,7 +111,7 @@
             <input type="text" maxlength="4" size="4" name="phone3">
         </p>
         <p>이메일: <input type="text" name="email"></p>
-        <p><input type="button" value="가입하기" onclick="checkMember()"></p>
+        <p><input type="button" value="정보 수정" onclick="checkMember()"></p>
     </form>
 </body>
 </html>

@@ -2,8 +2,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 
@@ -43,6 +42,8 @@
             if(rs1.next()) {
                 name = rs1.getString("NAME");
                 session.setAttribute("name", name);
+                session.setAttribute("id", id);
+                
                 response.sendRedirect("../main/main.jsp");
 
             }

@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <title>Login</title>
 <style>
     body {
@@ -50,20 +48,21 @@
 </head>
 <body>
     <form name="loginForm" action="../user/login_process.jsp" method="post">
-    <p>¾ÆÀÌµğ: <input type="text" name="id"></p>
-    <p>ºñ¹Ğ¹øÈ£: <input type="password" name="passwd"></p>
-    <p><input type="button" value="Àü¼Û" onclick="checkLogin()"></p>
-    <p><input type="button" value="È¸¿ø°¡ÀÔ" onclick="location.href='../join/join_form.jsp'">
+    <p>ì•„ì´ë””: <input type="text" name="id"></p>
+    <p>ë¹„ë°€ë²ˆí˜¸: <input type="password" name="passwd"></p>
+    <p><input type="button" value="ì „ì†¡" onclick="checkLogin()"></p>
+    <p><input type="button" value="íšŒì›ê°€ì…" onclick="location.href='../join/join_form.jsp'">
     </form>
+    
 <script type="text/javascript">
     function checkLogin() {
         var form = document.loginForm;
         if(form.id.value =="") {
-            alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+            alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
             form.id.focus();
             return false;
         } else if(form.passwd.value == "") {
-            alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+            alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
             form.passwd.focus();
             return false;
         }
