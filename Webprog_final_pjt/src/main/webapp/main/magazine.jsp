@@ -17,47 +17,59 @@
 <title>Magazine</title>
 </head>
 <body>
-	<%@ include file="./menu.jsp"%>
+	<%@ include file="../main/menu.jsp"%>
 	<%@ include file="../DBconn/dbconn.jsp"%>
 	<%
 	String id = request.getParameter("id");
 	MagazineRepository dao = MagazineRepository.getInstance();
 	Magazine mag = dao.getMagById(id);
-	
+
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String sql = "SELECT * FROM WRITEDATA";
+	String sql = "SELECT * FROM WRITEDATA WHERE MAGAZINEID = ?";
 	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, id);
 	rs = pstmt.executeQuery();
+
+	boolean recordFound = false;  // 플래그 변수 초기화
 	%>
-	<div class="row align-items-md-stretch">	 	
-	 		<% while (rs.next()) { 
-	 			System.out.println(id);
-	 			if(id.equals(rs.getString("MAGAZINEID"))){
-	 		%>
-	 		<div class="col-md-5">
-				<img src="../resources/img/<%=rs.getString("MAGAZINEID")%>.jpg" style="width: 70%">
-			</div>
-			<div class="col-md-6">
-				<h3><b><%=rs.getString("magTitle")%></b></h3>
-				<p><b>태그</b> : <%=rs.getString("magTitle")%>					
-				<p><b>저자</b> : <%=rs.getString("clientId")%>	
-				<p><b>글 내용</b> : <%=rs.getString("magContent")%>
-			</div>
-			<%}
-	 			}%>
+	<div class="row align-items-md-stretch">
+		<%
+		while (rs.next()) {
+			if (id.equals(rs.getString("MAGAZINEID"))) {
+		%>
+		<div class="col-md-5">
+			<img src="../resources/img/<%=rs.getString("MAGFILE")%>"
+				style="width: 70%">
 		</div>
-	<%-- <div class="row align-items-md-stretch">	 	
-	 		<div class="col-md-5">
-				<img src="../resources/img/<%=mag.getMagazineId()%>.jpg" style="width: 70%">
-			</div>
-			<div class="col-md-6">
-				<h3><b><%=mag.getMagTitle()%></b></h3>
-				<p><b>저자</b> : <%=mag.getClientId()%>	
-				<p><b>태그</b> : <%=mag.getMagTag()%>					
-				<p><b>글 내용</b> : <%=mag.getMagcontent()%>
-			</div>
-		</div> --%>
-	
+		<div class="col-md-6">
+			<h3>
+				<b><%=rs.getString("magTitle")%></b>
+			</h3>
+			<p>
+				<b>태그</b> :
+				<%=rs.getString("magTitle")%>
+			<p>
+				<b>저자</b> :
+				<%=rs.getString("clientId")%>
+			<p>
+				<b>글 내용</b> :
+				<%=rs.getString("magContent")%>
+		</div>
+		<%
+			}
+		}
+			recordFound = true;  // 데이터가 있으면 플래그를 true로 설정
+
+		if (!recordFound) {
+		%>
+			<script>
+				alert("글이 존재하지 않습니다.");
+				window.location.href = "../main/magazine.jsp"; // 다시 현재 페이지로 리다이렉트
+			</script>
+		<%
+		}
+		%>
+	</div>
 </body>
 </html>

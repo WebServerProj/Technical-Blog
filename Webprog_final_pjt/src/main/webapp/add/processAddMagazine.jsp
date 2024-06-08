@@ -26,13 +26,10 @@ String magContent = multi.getParameter("magContent");
 String clientId = (String) session.getAttribute("id");
 String magFile = multi.getFilesystemName("file");
 
-//파일과 관련된 객체
-//Part magFile = request.getPart("file");
-
 //파일의 이름을 바꾸는 코드 (magazineID로 변경)
 File uploadedFile = multi.getFile("file"); // "file"은 클라이언트 폼에서 파일 input의 name 속성
 
-if (uploadedFile != null) {
+/* if (uploadedFile != null) {
 	// 서버가 지정한 파일 이름 변수 (예: 데이터베이스, 세션 등에서 가져온 값)
 	String serverAssignedFileName = magazineID; // 서버에서 지정한 파일 이름 (확장자 제외)
 
@@ -46,7 +43,7 @@ if (uploadedFile != null) {
 
 	// 파일 이름 변경
 	uploadedFile.renameTo(newFile);
-}
+} */
 
 // 데이터베이스 연결 정보 설정
 String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 데이터베이스 URL
