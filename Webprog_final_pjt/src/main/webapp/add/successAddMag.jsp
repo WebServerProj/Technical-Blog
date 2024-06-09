@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>±ÛÀÛ¼º ¼º°øÆäÀÌÁö</title>
+<title>ê¸€ìž‘ì„± ì„±ê³µíŽ˜ì´ì§€</title>
 </head>
 <body>
-	<p>±Û ÀÛ¼ºÀ» ¼º°øÇß½À´Ï´Ù.</p>
+	<p>ê¸€ ìž‘ì„±ì„ ì„±ê³µí–ˆìŠµë‹ˆë‹¤.</p>
 	<form action="../main/main.jsp" method="POST">
-		<button type="submit" class="btn btn-dark">¸ÞÀÎÆäÀÌÁö·Î µ¹¾Æ°¡±â</button>
+		<button type="submit" class="btn btn-dark">ë©”ì¸íŽ˜ì´ì§€ë¡œ ëŒì•„ê°€ê¸°</button>
 	</form>
 </body>
 </html>

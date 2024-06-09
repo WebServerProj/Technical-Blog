@@ -1,5 +1,5 @@
 <!-- Check My Magazine list -->
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import ="java.sql.*"%>
 <%@ page import ="javax.naming.*"%>
 <%@ page import ="javax.sql.*"%>

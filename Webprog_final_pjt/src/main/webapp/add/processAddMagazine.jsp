@@ -6,6 +6,7 @@
 <%@ page import="javax.sql.*"%>
 <%@ page import="com.oreilly.servlet.*"%>
 <%@ page import="com.oreilly.servlet.multipart.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <%
 //파일 처리르 위한 코드 (나중에 수정 예정)

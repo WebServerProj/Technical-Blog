@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="jakarta.websocket.OnError"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -67,51 +67,3 @@
 			height="24px">
 		</a>
 	</div>
-
-	<!-- Search Bar -->
-	<div class="container mt-3">
-		<form action="../search/search_process.jsp" method="post" class="d-flex">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_value">
-			<button class="btn btn-outline-success" type="submit">Search</button>
-		</form>
-	</div>
-
-   <!-- Main Content -->
-   <%@ include file="../DBconn/dbconn.jsp" %>
-   <%
-      PreparedStatement pstmt = null;
-      ResultSet rs = null;
-      String sql = "SELECT * FROM WRITEDATA";
-      pstmt = conn.prepareStatement(sql);
-      rs = pstmt.executeQuery();
-   %>
-
-<div class="container">
-    <div class="row align-items-md-stretch text-center">
-        <% while (rs.next()) { %>
-            <div class="col-md-4">
-                <div class="h-100 p-2">
-                    <img src="C://0605file/<%=rs.getString("MAGFILE") %>"
-                         onerror="this.src='../resources/images/error.png';" class="img-fluid" style="width: 250px; height:350px">
-                    <h5>
-                        <b><%=rs.getString("magTitle")%></b>
-                    </h5>
-                    <p> <%=rs.getString("magContent").substring(0, 10)%>...</p>
-                    <a href="./magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-                       class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
-                    <p><%=rs.getString("clientId")%></p>
-                </div>
-            </div>
-        <% } %>
-    </div>
-</div>
-      <%
-      if (rs!=null)
-         rs.close();
-      if (pstmt!=null)
-         pstmt.close();
-      if(conn != null)
-         conn.close();
-      %>
-</body>
-</html>

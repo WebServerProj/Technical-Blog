@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <title>블로그 글쓰기</title>

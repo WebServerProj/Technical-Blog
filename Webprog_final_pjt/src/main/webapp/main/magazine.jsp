@@ -21,8 +21,8 @@
 	<%@ include file="../DBconn/dbconn.jsp"%>
 	<%
 	String id = request.getParameter("id");
-	MagazineRepository dao = MagazineRepository.getInstance();
-	Magazine mag = dao.getMagById(id);
+//	MagazineRepository dao = MagazineRepository.getInstance();
+//	Magazine mag = dao.getMagById(id);
 	
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
