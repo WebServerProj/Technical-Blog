@@ -23,7 +23,7 @@ while (rs.next()) {
 	<div class="col-md-4">
 		<div class="h-100 p-2">
 			<img src="../resources/img/<%=rs.getString("magFile")%>"
-				onerror="../resources/images/error.jpg" class="img-fluid"
+				onerror="../resources/img/error.png" class="img-fluid"
 				style="width: 250; height: 350">
 			<h5>
 				<b><%=rs.getString("magTitle")%></b>
