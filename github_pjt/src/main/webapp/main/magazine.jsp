@@ -63,7 +63,7 @@ body {
 		%>
 		<div class="row magazine-container">
 			<div class="col-md-5">
-				<img src="../resources/img/<%=rs.getString("MAGAZINEID")%>.jpg"
+			<img src="../resources/img/<%=rs.getString("MAGFILE")%>"
 					class="magazine-img">
 			</div>
 			<div class="col-md-7">

@@ -31,7 +31,7 @@
         <% while (rs.next()) { %>
             <div class="col-md-4">
                 <div class="h-100 p-2">
-                    <img src="C://0605file/<%=rs.getString("MAGFILE") %>"
+                    <img src="../resources/img/<%=rs.getString("MAGFILE") %>"
                          onerror="this.src='../resources/images/error.png';" class="img-fluid" style="width: 250px; height:350px">
                     <h5>
                         <b><%=rs.getString("magTitle")%></b>

@@ -4,7 +4,7 @@
 <%@ page import="javax.naming.*"%>
 <%@ page import="javax.sql.*"%>
 
-<%@ include file="../main/menu.jsp" %>
+<%@ include file="../main/menu.jsp"%>
 <%@ include file="../DBconn/dbconn.jsp"%>
 <%
 String memid = (String) session.getAttribute("id");
@@ -33,10 +33,10 @@ while (rs.next()) {
 			</p>
 			<p><%=rs.getString("clientId")%>
 				<a href="../main/magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-					class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
-				<a href="../edit/edit.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-					class="btn btn-secondary" role="button">글 수정 &raquo;</a>
-				<a href="../delete/delete.jsp?id=<%=rs.getString("MAGAZINEID")%>"
+					class="btn btn-secondary" role="button">상세 정보 &raquo;</a> <a
+					href="../edit/edit.jsp?id=<%=rs.getString("MAGAZINEID")%>"
+					class="btn btn-secondary" role="button">글 수정 &raquo;</a> <a
+					href="../delete/delete.jsp?id=<%=rs.getString("MAGAZINEID")%>"
 					class="btn btn-secondary" role="button">글 삭제 &raquo;</a>
 			<p>
 				by
@@ -48,10 +48,10 @@ while (rs.next()) {
 	}
 	%>
 	<%
-		if(count == 0){
-			%>
-				<h5 style="center">작성한 글이 존재하지 않습니다.</h5>
-			<%
-		}
+	if (count == 0) {
+	%>
+	<h5 style="">작성한 글이 존재하지 않습니다.</h5>
+	<%
+	}
 	%>
 </div>
