@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,27 +54,34 @@ label {
 </style>
 </head>
 <body>
-	<div class="container">
-		<h1>매거진 글쓰기</h1>
-		<form action="./processAddMagazine.jsp" method="POST" enctype="multipart/form-data">
-			<div>
-				<input type="file" name="file">
+	<fmt:setLocale value='<%=request.getParameter("language")%>' />
+	<fmt:bundle basename="bundle.message">
+		<div class="container">
+			<h1><fmt:message key="title" /></h1>
+			<div class="text-end">
+				<a href="?language=ko">Korean</a> | <a href="?language=en">English</a>
 			</div>
-			<div class="form-group">
-				<label for="magTitle">제목</label> <input type="text" id="magTitle"
-					name="magTitle" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="magTag">태그</label> <input type="text" id="magTag"
-					name="magTag" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="magContent">내용</label>
-				<textarea id="magContent" name="magContent" class="form-control"
-					rows="10" required></textarea>
-			</div>
-			<input type="submit" value="글 작성완료" class="btn">
-		</form>
-	</div>
+			<form action="./processAddMagazine.jsp" method="POST"
+				enctype="multipart/form-data">
+				<div>
+					<input type="file" name="file">
+				</div>
+				<div class="form-group">
+					<label for="magTitle"><fmt:message key="magtitle" /></label> <input type="text" id="magTitle"
+						name="magTitle" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="magTag"><fmt:message key="magtag" /></label> <input type="text" id="magTag"
+						name="magTag" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="magContent"><fmt:message key="magcontent" /></label>
+					<textarea id="magContent" name="magContent" class="form-control"
+						rows="10" required></textarea>
+				</div>
+				<input type="submit" value="<fmt:message key="suc_btn" />" class="btn">
+			</form>
+		</div>
+	</fmt:bundle>
 </body>
 </html>

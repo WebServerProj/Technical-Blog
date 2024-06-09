@@ -1,6 +1,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -44,108 +45,112 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="./menu.jsp"%>
-	<%@ include file="../DBconn/dbconn.jsp"%>
-	<div class="container">
-		<%
-		String id = request.getParameter("id");
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT * FROM WRITEDATA WHERE MAGAZINEID = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
-		rs = pstmt.executeQuery();
-		%>
-		<%
-		try {
-			while (rs.next()) {
-				if (id.equals(rs.getString("MAGAZINEID"))) {
-		%>
-		<div class="row magazine-container">
-			<div class="col-md-5">
-				<img src="../resources/img/<%=rs.getString("MAGFILE")%>"
-					class="magazine-img" onerror="this.src='../resources/img/error.png';">
-			</div>
-			<div class="col-md-7">
-				<h3 class="magazine-title"><%=rs.getString("magTitle")%></h3>
-				<p class="magazine-tag">
-					<b>SubTitle:</b>
-					<%=rs.getString("magTag")%></p>
-				<p class="magazine-author">
-					<b>Author:</b>
-					<%=rs.getString("clientId")%></p>
-				<pre class="magazine-content">
-					<b>Content:</b> <%=rs.getString("magContent")%></pre>
-			</div>
-		</div>
-		<%
-		}
-		}
-		} catch (Exception e) {
-		%>
-		<script>
-			alert("글이 존재하지 않습니다.");
-			window.location.href = "../main/magazine.jsp"; // 다시 현재 페이지로 리다이렉트
-		</script>
-		<%
-		}
-		%>
-
-		<!-- 댓글 입력 폼 -->
-		<div class="row mt-4">
-			<div class="col-md-12">
-				<%
-				if (session.getAttribute("name") != null) {
-				%>
-				<h4>댓글 남기기</h4>
-				<form action="save_comment.jsp" method="post">
-					<input type="hidden" name="magazineId" value="<%=id%>">
-
-					<div class="mb-3">
-						<label for="content" class="form-label">내용</label>
-						<textarea class="form-control" id="content" name="content"
-							rows="3" required></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">댓글 작성</button>
-				</form>
-			</div>
-		</div>
-		<%
-		} else {
-		%>
-		<h3>댓글 기능은 로그인 후 이용 가능합니다.</h3>
-		<%
-		}
-		%>
-
-		<!-- 댓글 목록 -->
-		<div class="row mt-4">
-			<div class="col-md-12">
-				<h4>댓글</h4>
-				<%
-				sql = "SELECT * FROM COMMENTS WHERE MAGAZINE_ID = ? ORDER BY CREATED_AT DESC";
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id);
-				rs = pstmt.executeQuery();
-				%>
-				<%
+	<fmt:setLocale value='<%=request.getParameter("language")%>' />
+	<fmt:bundle basename="bundle.message">
+		<%@ include file="./menu.jsp"%>
+		<%@ include file="../DBconn/dbconn.jsp"%>
+		<div class="container">
+			<%
+			String id = request.getParameter("id");
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM WRITEDATA WHERE MAGAZINEID = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			%>
+			<%
+			try {
 				while (rs.next()) {
-				%>
-				<div class="card mb-3">
-					<div class="card-body">
-						<h5 class="card-title"><%=rs.getString("AUTHOR")%></h5>
-						<p class="card-text"><%=rs.getString("CONTENT")%></p>
-						<p class="card-text">
-							<small class="text-muted"><%=rs.getTimestamp("CREATED_AT")%></small>
-						</p>
-					</div>
+					if (id.equals(rs.getString("MAGAZINEID"))) {
+			%>
+			<div class="row magazine-container">
+				<div class="col-md-5">
+					<img src="../resources/img/<%=rs.getString("MAGFILE")%>"
+						class="magazine-img"
+						onerror="this.src='../resources/img/error.png';">
 				</div>
-				<%
-				}
-				%>
+				<div class="col-md-7">
+					<h3 class="magazine-title"><fmt:message key="magtitle" /><%=rs.getString("magTitle")%></h3>
+					<p class="magazine-tag">
+						<b>SubTitle:</b>
+						<fmt:message key="magtag" /><%=rs.getString("magTag")%></p>
+					<p class="magazine-author">
+						<b>Author:</b>
+						<fmt:message key="clientid" /><%=rs.getString("clientId")%></p>
+					<pre class="magazine-content">
+					<b>Content:</b> <fmt:message key="magcontent" /><%=rs.getString("magContent")%></pre>
+				</div>
+			</div>
+			<%
+			}
+			}
+			} catch (Exception e) {
+			%>
+			<script>
+				alert("글이 존재하지 않습니다.");
+				window.location.href = "../main/magazine.jsp"; // 다시 현재 페이지로 리다이렉트
+			</script>
+			<%
+			}
+			%>
+
+			<!-- 댓글 입력 폼 -->
+			<div class="row mt-4">
+				<div class="col-md-12">
+					<%
+					if (session.getAttribute("name") != null) {
+					%>
+					<h4>댓글 남기기</h4>
+					<form action="save_comment.jsp" method="post">
+						<input type="hidden" name="magazineId" value="<%=id%>">
+
+						<div class="mb-3">
+							<label for="content" class="form-label">내용</label>
+							<textarea class="form-control" id="content" name="content"
+								rows="3" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">댓글 작성</button>
+					</form>
+				</div>
+			</div>
+			<%
+			} else {
+			%>
+			<h3>댓글 기능은 로그인 후 이용 가능합니다.</h3>
+			<%
+			}
+			%>
+
+			<!-- 댓글 목록 -->
+			<div class="row mt-4">
+				<div class="col-md-12">
+					<h4>댓글</h4>
+					<%
+					sql = "SELECT * FROM COMMENTS WHERE MAGAZINE_ID = ? ORDER BY CREATED_AT DESC";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, id);
+					rs = pstmt.executeQuery();
+					%>
+					<%
+					while (rs.next()) {
+					%>
+					<div class="card mb-3">
+						<div class="card-body">
+							<h5 class="card-title"><%=rs.getString("AUTHOR")%></h5>
+							<p class="card-text"><%=rs.getString("CONTENT")%></p>
+							<p class="card-text">
+								<small class="text-muted"><%=rs.getTimestamp("CREATED_AT")%></small>
+							</p>
+						</div>
+					</div>
+					<%
+					}
+					%>
+				</div>
 			</div>
 		</div>
-	</div>
+		</fmt:bundle>
 </body>
 </html>
 
