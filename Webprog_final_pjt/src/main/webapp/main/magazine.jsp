@@ -1,7 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -45,8 +44,6 @@ body {
 </style>
 </head>
 <body>
-	<fmt:setLocale value='<%=request.getParameter("language")%>' />
-	<fmt:bundle basename="bundle.message">
 		<%@ include file="./menu.jsp"%>
 		<%@ include file="../DBconn/dbconn.jsp"%>
 		<div class="container">
@@ -71,15 +68,15 @@ body {
 						onerror="this.src='../resources/img/error.png';">
 				</div>
 				<div class="col-md-7">
-					<h3 class="magazine-title"><fmt:message key="magtitle" /><%=rs.getString("magTitle")%></h3>
+					<h3 class="magazine-title"><%=rs.getString("magTitle")%></h3>
 					<p class="magazine-tag">
 						<b>SubTitle:</b>
-						<fmt:message key="magtag" /><%=rs.getString("magTag")%></p>
+						<%=rs.getString("magTag")%></p>
 					<p class="magazine-author">
 						<b>Author:</b>
-						<fmt:message key="clientid" /><%=rs.getString("clientId")%></p>
+						<%=rs.getString("clientId")%></p>
 					<pre class="magazine-content">
-					<b>Content:</b> <fmt:message key="magcontent" /><%=rs.getString("magContent")%></pre>
+					<b>Content:</b> <%=rs.getString("magContent")%></pre>
 				</div>
 			</div>
 			<%
@@ -150,7 +147,6 @@ body {
 				</div>
 			</div>
 		</div>
-		</fmt:bundle>
 </body>
 </html>
 
