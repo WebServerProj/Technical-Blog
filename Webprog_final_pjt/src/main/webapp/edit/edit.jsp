@@ -6,47 +6,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="../resources/css/custom.css">
 <title>글 수정 페이지</title>
 <style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-}
-
 header {
 	background-color: #333;
 	color: #fff;
 	padding: 10px 0;
+	margin: 30px 7%;
 	text-align: center;
-}
-
-form {
-	width: 60%;
-	margin: 0 auto;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #f9f9f9;
 }
 
 form input[type="text"], form textarea {
 	width: 100%;
 	padding: 10px;
-	margin-bottom: 10px;
+	margin: 0px 7%;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-sizing: border-box;
-}
-
-form input[type="submit"] {
-	background-color: #333;
-	color: #fff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
 }
 </style>
 </head>
@@ -78,22 +58,25 @@ form input[type="submit"] {
 	<header>
 		<h1>글 수정 페이지</h1>
 	</header>
-
-	<form action="./editprocess.jsp" method="post">
-		<input type="hidden" name="magid" value="<%=magid%>">
-		<p>
-			Tag : <input type="text" name="magtag" value="<%=magtitle%>">
-		</p>
-		<p>
-			Title: <input type="text" name="magtitle" value="<%=magtitle%>">
-		</p>
-		<p>
-			Content:
-			<textarea name="magcontent" rows="10"><%=magcontent%></textarea>
-		</p>
-		<p>
-			<input type="submit" value="Update">
-		</p>
-	</form>
+	<div class="edit-body">
+		<div class="edit-form">
+			<form action="./editprocess.jsp" method="post">
+				<input type="hidden" name="magid" value="<%=magid%>">
+				<p>
+					Tag <input type="text" name="magtag" value="<%=magtitle%>">
+				</p>
+				<p>
+					Title <input type="text" name="magtitle" value="<%=magtitle%>">
+				</p>
+				<p>
+					Content
+					<textarea name="magcontent" rows="10"><%=magcontent%></textarea>
+				</p>
+				<p>
+					<input type="submit" value="Update">
+				</p>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
