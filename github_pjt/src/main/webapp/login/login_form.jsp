@@ -51,7 +51,9 @@
     <p>아이디: <input type="text" name="id"></p>
     <p>비밀번호: <input type="password" name="passwd"></p>
     <p><input type="button" value="전송" onclick="checkLogin()"></p>
+    <p><input type="button" value="회원가입" onclick="location.href='../join/join_form.jsp'">
     </form>
+    
 <script type="text/javascript">
     function checkLogin() {
         var form = document.loginForm;

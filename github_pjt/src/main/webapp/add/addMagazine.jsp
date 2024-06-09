@@ -1,7 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+<meta charset="EUC-KR">
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <title>블로그 글쓰기</title>
 <style>
