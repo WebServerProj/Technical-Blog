@@ -34,8 +34,11 @@
 	if (conn != null)
 		conn.close();
 	
-	response.sendRedirect("../main/magazine.jsp?edit=delete");
+	/* response.sendRedirect("../main/magazine.jsp?edit=delete"); */
 	%>
+	<script>
+		window.location.href = "../checkMyMag/checkMag.jsp";
+	</script>
 
 </body>
 </html>

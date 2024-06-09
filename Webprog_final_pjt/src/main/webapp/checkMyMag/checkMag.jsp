@@ -29,7 +29,7 @@ while (rs.next()) {
 				<b><%=rs.getString("magTitle")%></b>
 			</h5>
 			<p>
-				<%=rs.getString("magContent").substring(0, 30)%>...
+				<%=rs.getString("magContent").substring(0, 10)%>...
 			</p>
 			<p><%=rs.getString("clientId")%>
 				<a href="../main/magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>"
