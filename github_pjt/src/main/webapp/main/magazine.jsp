@@ -94,6 +94,9 @@ body {
 		<!-- 댓글 입력 폼 -->
 		<div class="row mt-4">
 			<div class="col-md-12">
+				<%
+				if (session.getAttribute("name") != null) {
+				%>
 				<h4>댓글 남기기</h4>
 				<form action="save_comment.jsp" method="post">
 					<input type="hidden" name="magazineId" value="<%=id%>">
@@ -107,6 +110,13 @@ body {
 				</form>
 			</div>
 		</div>
+		<%
+		} else {
+		%>
+		<h3>댓글 기능은 로그인 후 이용 가능합니다.</h3>
+		<%
+		}
+		%>
 
 		<!-- 댓글 목록 -->
 		<div class="row mt-4">
