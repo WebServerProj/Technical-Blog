@@ -64,24 +64,11 @@
 			%>
 			<script>
 				alert("글이 존재하지 않습니다.");
-				window.location.href = "../checkMyMag/checkMag.jsp"; // 다시 현재 페이지로 리다이렉트
+				window.location.href = "../main/magazine.jsp"; // 다시 현재 페이지로 리다이렉트
 			</script>
 			<%
 		}
 		%>
-		
-		<%--<%
-			recordFound = true;  // 데이터가 있으면 플래그를 true로 설정
-
-		if (!recordFound) {
-		%>
-			<script>
-				alert("글이 존재하지 않습니다.");
-				window.location.href = "../main/magazine.jsp"; // 다시 현재 페이지로 리다이렉트
-			</script>
-		<%
-		}
-		%>--%>
 	</div>
 </body>
 </html>

@@ -15,10 +15,10 @@
 <title>Magazine</title>
 </head>
 <body>
-	<!-- Header block -->
+	<%-- <!-- Header block -->
 	<div class="Headerblock">
 		<div class="item1">
-			<a href="./main.jsp"><h1>velog</h1></a>
+			<a href="../main/main.jsp"><h1>velog</h1></a>
 		</div>
 		<div class="Headerblock-inline">
 			<div class="Header-button">
@@ -74,7 +74,8 @@
 			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_value">
 			<button class="btn btn-outline-success" type="submit">Search</button>
 		</form>
-	</div>
+	</div> --%>
+	<%@ include file="../main/menu.jsp" %>
 
    <!-- Main Content -->
    <%@ include file="../DBconn/dbconn.jsp" %>
