@@ -15,47 +15,41 @@ ResultSet rs = null;
 String sql = "SELECT * FROM WRITEDATA";
 pstmt = conn.prepareStatement(sql);
 rs = pstmt.executeQuery();
-while (rs.next()) {
-	if (memid.equals(rs.getString("clientId"))) {
-		count++;
 %>
-<div class="row align-items-md-stretch text-center">
-	<div class="col-md-4">
-		<div class="h-100 p-2">
-			<img src="../resources/img/<%=rs.getString("magFile")%>"
-				onerror="../resources/images/error.jpg" class="img-fluid"
-				style="width: 250; height: 350">
-			<h5>
-				<b><%=rs.getString("magTitle")%></b>
-			</h5>
-			<p>
-				<%=rs.getString("magContent").substring(0, 30)%>...
-			</p>
-			<p><%=rs.getString("clientId")%>
-				<a href="../main/magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-					class="btn btn-secondary" role="button">상세 정보 &raquo;</a> <a
-					href="../edit/edit.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-					class="btn btn-secondary" role="button">글 수정 &raquo;</a> <a
-					href="../delete/delete.jsp?id=<%=rs.getString("MAGAZINEID")%>"
-					class="btn btn-secondary" role="button">글 삭제 &raquo;</a>
-			<p>
-				by
-				<%=rs.getString("clientId")%></p>
-		</div>
-	</div>
+<div class="container">
+	<div class="row">
 	<%
-	}
-	}
+	while (rs.next()) {
+		if (memid.equals(rs.getString("clientId"))) {
+			count++;
 	%>
+		<div class="col-md-4 mb-4">
+			<div class="h-100 p-2 border">
+				<img src="../resources/img/<%=rs.getString("magFile")%>" onerror="this.src='../resources/img/error.png'" class="img-fluid" style="width: 250px; height: 350px;">
+				<h5><b><%=rs.getString("magTitle")%></b></h5>
+				<p><%=rs.getString("magContent").substring(0, 30)%>...</p>
+				<p><%=rs.getString("clientId")%></p>
+				<a href="../main/magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>" class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
+				<a href="../edit/edit.jsp?id=<%=rs.getString("MAGAZINEID")%>" class="btn btn-secondary" role="button">글 수정 &raquo;</a>
+				<a href="../delete/delete.jsp?id=<%=rs.getString("MAGAZINEID")%>" class="btn btn-secondary" role="button">글 삭제 &raquo;</a>
+				<p>by <%=rs.getString("clientId")%></p>
+			</div>
+		</div>
 	<%
+		}
+	}
 	if (count == 0) {
 	%>
-	<div class="row justify-content-center">
-		<div class="col-md-6 text-center">
+		<div class="col-12 text-center">
 			<h5>작성한 글이 존재하지 않습니다.</h5>
 		</div>
-	</div>
 	<%
 	}
 	%>
+	</div>
 </div>
+
+<%
+rs.close();
+pstmt.close();
+%>

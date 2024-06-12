@@ -64,7 +64,7 @@ body {
 		<div class="row magazine-container">
 			<div class="col-md-5">
 			<img src="../resources/img/<%=rs.getString("MAGFILE")%>"
-					class="magazine-img">
+					class="magazine-img" onerror="this.src='../resources/img/error.png'">
 			</div>
 			<div class="col-md-7">
 				<h3 class="magazine-title"><%=rs.getString("magTitle")%></h3>

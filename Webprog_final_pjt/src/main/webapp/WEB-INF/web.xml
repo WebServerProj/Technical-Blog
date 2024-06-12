@@ -9,4 +9,12 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+  	  <servlet-name>MagController</servlet-name>
+  	  <servlet-class>mvc.controller.MagController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MagController</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>

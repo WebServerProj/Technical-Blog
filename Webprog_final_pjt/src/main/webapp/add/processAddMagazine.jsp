@@ -29,22 +29,6 @@ String magFile = multi.getFilesystemName("file");
 //파일의 이름을 바꾸는 코드 (magazineID로 변경)
 File uploadedFile = multi.getFile("file"); // "file"은 클라이언트 폼에서 파일 input의 name 속성
 
-/* if (uploadedFile != null) {
-	// 서버가 지정한 파일 이름 변수 (예: 데이터베이스, 세션 등에서 가져온 값)
-	String serverAssignedFileName = magazineID; // 서버에서 지정한 파일 이름 (확장자 제외)
-
-	// 파일 확장자 추출 (예: .txt, .jpg 등)
-	String originalFileName = uploadedFile.getName();
-	String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-
-	// 새로운 파일 이름 생성
-	String newFileName = serverAssignedFileName + fileExtension;
-	File newFile = new File(realFolder, newFileName);
-
-	// 파일 이름 변경
-	uploadedFile.renameTo(newFile);
-} */
-
 // 데이터베이스 연결 정보 설정
 String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 데이터베이스 URL
 String uid = "C##JSP"; // 데이터베이스 사용자명
@@ -56,11 +40,6 @@ InputStream inputStream = null;
 
 // MEMBERS에서 고객아이디를 외래키로 가져오는 방식 추가 예정
 String sql = "INSERT INTO WRITEDATA VALUES (?, ?, ?, ?, ?, ?)";
-
-//if (request.getMethod().equalsIgnoreCase("POST")) {
-
-/* if(magFile != null)
-	inputStream = magFile.getInputStream(); */
 
 try {
 	// Oracle JDBC 드라이버 로드
