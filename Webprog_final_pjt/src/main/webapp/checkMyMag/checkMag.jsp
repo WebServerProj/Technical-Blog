@@ -50,7 +50,11 @@ while (rs.next()) {
 	<%
 	if (count == 0) {
 	%>
-	<h5 style="">작성한 글이 존재하지 않습니다.</h5>
+	<div class="row justify-content-center">
+		<div class="col-md-6 text-center">
+			<h5>작성한 글이 존재하지 않습니다.</h5>
+		</div>
+	</div>
 	<%
 	}
 	%>

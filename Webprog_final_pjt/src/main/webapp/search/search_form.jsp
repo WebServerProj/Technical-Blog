@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= titles.get(i) %></h5>
                             <p class="card-text"><%= contents.get(i).substring(0, Math.min(contents.get(i).length(), 100)) %>...</p>
-                            <a href="../main/magazine.jsp?id=><%= magazineIds.get(i) %>" class="btn btn-primary">상세 정보</a>
+                            <a href="../main/magazine.jsp?id=<%= magazineIds.get(i) %>" class="btn btn-primary">상세 정보</a>
                         </div>
                     </div>
         <%

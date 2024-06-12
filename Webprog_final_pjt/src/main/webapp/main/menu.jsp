@@ -20,7 +20,7 @@
 	<!-- Header block -->
 	<div class="Headerblock">
 		<div class="item1">
-			<a href="../main/main.jsp"><h1>velog</h1></a>
+			<a href="../main/main.jsp"><img src="../resources/img/Dongjunlog.png"></a>
 			<a href="?language=ko">Korean</a> | <a href="?language=en">English</a>
 			
 		</div>

@@ -36,7 +36,7 @@
                     <h5>
                         <b><%=rs.getString("magTitle")%></b>
                     </h5>
-                    <p> <%=rs.getString("magContent").substring(0, 10)%>...</p>
+                    <p> <%=rs.getString("magContent").substring(0, 30)%>...</p>
                     <a href="./magazine.jsp?id=<%=rs.getString("MAGAZINEID")%>"
                        class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
                     <p><%=rs.getString("clientId")%></p>
