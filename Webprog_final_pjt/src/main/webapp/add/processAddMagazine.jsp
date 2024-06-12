@@ -9,7 +9,7 @@
 
 <%
 //파일 처리르 위한 코드 (나중에 수정 예정)
-String realFolder = "C:\\Users\\miso4\\git\\real\\WebServ_final_pjt\\src\\main\\webapp\\resources\\img";
+String realFolder = "C:\\Users\\miso4\\git\\real\\Webprog_final_pjt\\src\\main\\webapp\\resources\\img";
 int maxSize = 5 * 1024 * 1024; //최대 업로드될 파일의 크기5Mb
 String encType = "utf-8"; //인코딩 타입
 

@@ -1,16 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>±ÛÀÛ¼º ¼º°øÆäÀÌÁö</title>
+<title>ê¸€ì‘ì„± ì„±ê³µí˜ì´ì§€</title>
+<style>
+    body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .success-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .success-message {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+</style>
 </head>
 <body>
-	<p>±Û ÀÛ¼ºÀ» ¼º°øÇß½À´Ï´Ù.</p>
-	<form action="../main/main.jsp" method="POST">
-		<button type="submit" class="btn btn-dark">¸ŞÀÎÆäÀÌÁö·Î µ¹¾Æ°¡±â</button>
-	</form>
+    <div class="success-container">
+        <p class="success-message">ê¸€ ì‘ì„±ì„ ì„±ê³µí–ˆìŠµë‹ˆë‹¤.</p>
+        <form action="../main/main.jsp" method="POST">
+            <button type="submit" class="btn btn-dark">ë©”ì¸í˜ì´ì§€ë¡œ ëŒì•„ê°€ê¸°</button>
+        </form>
+    </div>
 </body>
 </html>
