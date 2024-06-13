@@ -53,6 +53,7 @@
 		
 		if(result == 1){			
 			response.sendRedirect("../update/update_success.jsp");
+			session.setAttribute("name", name);
 		} else{
 			response.sendRedirect("../update/update_fail.jsp");
 		}

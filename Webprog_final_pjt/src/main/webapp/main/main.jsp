@@ -4,7 +4,6 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page import="java.util.ArrayList"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +13,11 @@
 <link rel="stylesheet" href="../resources/css/custom.css">
 <title>Magazine</title>
 </head>
-	<%@include file="../main/menu.jsp" %>
+	<%@ include file="../main/menu.jsp" %>
+	<%@ include file="../DBconn/dbconn.jsp"%>
 
-   <!-- Main Content -->
-   <%@ include file="../DBconn/dbconn.jsp" %>
+<!-- Main Content -->
+   <%-- <%@ include file="../DBconn/dbconn.jsp" %> --%>
    <%
       PreparedStatement pstmt = null;
       ResultSet rs = null;
